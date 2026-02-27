@@ -1,37 +1,25 @@
 import { Input } from '@/components/input';
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View, KeyboardAvoidingView } from "react-native";
+import {app, text, form} from "@/styles/app"
+import { Button } from '@/components/Button';
 
 export default function Index() {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("@/assets/miku.png")}
-        style={styles.illustration}
-      />
-      <Text style={styles.title}>Bem vind@!!</Text>
-      <Text style={styles.subtitle}>Entrar</Text>
-      <Input/>
-    </View>
+    <KeyboardAvoidingView contentContainerStyle={{flex: 1}} behavior="height">
+      <ScrollView style={{flex: 1}} keyboardShouldPersistTaps="handled">
+        <View style={app.container}>
+          <Image
+            source={require("@/assets/miku.png")}
+            style={app.illustration}
+            />
+          <Text style={text.title}>Bem vind@!!</Text>
+          <Text style={text.subtitle}>Entrar</Text>
+          <Input placeholder='E-mail' keyboardType='email-address'/>
+          <Input placeholder='Senha' secureTextEntry/>
+          <Button label='Entrar' style={form.button}/>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 32,
-  },
-  illustration: {
-    width: "100%",
-    height: 330,
-    resizeMode: "contain",
-    marginTop: 32,
-  },
-  title: {
-    fontSize: 48,
-    fontWeight: "bold",
-    paddingTop: 35,
-  },
-  subtitle: {
-    fontSize: 32,
-  },
-});

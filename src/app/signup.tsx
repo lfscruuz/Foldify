@@ -4,22 +4,22 @@ import {app, text, form} from "@/styles/app"
 import { Button } from '@/components/Button';
 import { Link } from 'expo-router';
 
-export default function Index() {
+export default function Signup() {
   return (
     <KeyboardAvoidingView contentContainerStyle={{flex: 1}} behavior="height">
       <ScrollView keyboardShouldPersistTaps="handled">
         <View style={app.container}>
           <Image
-            source={require("@/assets/miku.png")}
+            source={require("@/assets/teto.png")}
             style={app.illustration}
             />
           <Text style={text.title}>Bem vind@!!</Text>
-          <Text style={text.subtitle}>Entrar</Text>
+          <Text style={text.subtitle}>Cadastrar</Text>
           <Input placeholder='E-mail' keyboardType='email-address'/>
           <Input placeholder='Senha' secureTextEntry/>
-          <Button label='Entrar' style={form.button}/>
-          <Link href="/signup">
-            <Text>cadastre-se aqui</Text>
+          <Button label='Cadastrar' style={form.button}/>
+          <Link href="/">
+            <Text>entre aqui</Text>
           </Link>
         </View>
       </ScrollView>

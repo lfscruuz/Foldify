@@ -7,6 +7,9 @@ export default function Layout() {
                 headerShadowVisible: false,
                 contentStyle: { backgroundColor: "#fff" }
             }}
-        />
+        >
+            <Stack.Screen name="index" options={{ title: 'Home' }} />
+            <Stack.Screen name="signup" options={{ title: 'Sign up' }} />
+        </Stack>
     ) 
 }

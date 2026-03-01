@@ -3,27 +3,34 @@ import { Image, ScrollView, StyleSheet, Text, View, KeyboardAvoidingView } from 
 import {app, text, form} from "@/styles/app"
 import { Button } from '@/components/Button';
 import { Link } from 'expo-router';
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-export default function Signup() {
+export default function Login() {
   return (
-    <KeyboardAvoidingView contentContainerStyle={{flex: 1}} behavior="height">
+    <KeyboardAwareScrollView
+    contentContainerStyle={{ flexGrow: 1 }}
+    enableOnAndroid={true}
+    extraScrollHeight={70}
+    keyboardShouldPersistTaps="handled"
+    >
       <ScrollView keyboardShouldPersistTaps="handled">
         <View style={app.container}>
           <Image
-            source={require("@/assets/teto.png")}
+            source={require("@/assets/miku.png")}
             style={app.illustration}
+            
             />
           <Text style={text.title}>Bem vind@!!</Text>
-          <Text style={text.subtitle}>Cadastrar</Text>
+          <Text style={text.subtitle}>Entrar</Text>
           <Input placeholder='E-mail' keyboardType='email-address'/>
           <Input placeholder='Senha' secureTextEntry/>
-          <Button label='Cadastrar' style={form.button}/>
-          <Link href="/login">
-            <Text>entre aqui</Text>
+          <Button label='Entrar' style={form.button}/>
+          <Link href="/signup">
+            <Text>cadastre-se aqui</Text>
           </Link>
         </View>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </KeyboardAwareScrollView>
   );
 }
 

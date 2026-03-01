@@ -1,29 +1,23 @@
-import { Input } from '@/components/input';
-import { Image, ScrollView, StyleSheet, Text, View, KeyboardAvoidingView } from "react-native";
-import {app, text, form} from "@/styles/app"
-import { Button } from '@/components/Button';
-import { Link } from 'expo-router';
+import { useRouter } from "expo-router";
+import { useEffect, useState } from "react";
+import { ActivityIndicator, View } from "react-native";
 
-export default function Index() {
+export default function index() 
+{
+  const router = useRouter();
+  const [isLoggedIn, setIstLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if(isLoggedIn) {
+      router.replace("/login")
+    }
+     else {
+      router.replace("/signup")
+    }
+  }, []);
   return (
-    <KeyboardAvoidingView contentContainerStyle={{flex: 1}} behavior="height">
-      <ScrollView keyboardShouldPersistTaps="handled">
-        <View style={app.container}>
-          <Image
-            source={require("@/assets/miku.png")}
-            style={app.illustration}
-            />
-          <Text style={text.title}>Bem vind@!!</Text>
-          <Text style={text.subtitle}>Entrar</Text>
-          <Input placeholder='E-mail' keyboardType='email-address'/>
-          <Input placeholder='Senha' secureTextEntry/>
-          <Button label='Entrar' style={form.button}/>
-          <Link href="/signup">
-            <Text>cadastre-se aqui</Text>
-          </Link>
-        </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <ActivityIndicator/>
+    </View>
   );
 }
-

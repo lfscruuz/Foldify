@@ -1,4 +1,9 @@
 import { StyleSheet } from "react-native";
 
-export 
- 
+const formField = StyleSheet.create({
+    email: {
+        
+    }
+})
+
+export {formField}
